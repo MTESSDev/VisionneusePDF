@@ -1,0 +1,23 @@
+﻿base:
+  - id: SR3003-02FR
+    urlPdf: /api/Document/Pdf/{id}
+    urlPost: /api/Document/Soumettre/{id}
+    urlCss: /api/Document/Css/SR3003
+    urlConfirmation: /Visionneuse/Confirmation/{id}
+    ide: 0358
+    modeTraitement: courriel
+    courriel:
+        A: a@essais.mtess.gouv.qc.ca
+        RetourA: a@essais.mtess.gouv.qc.ca
+        De: de@essais.mtess.gouv.qc.ca
+        Objet: DEMANDE no. {0}
+        Corps: {0}
+        NomPieceJointe: {ide}
+        EvenementAffaire: AFDR-SR3003
+    Messages:
+        - id: succes
+          AfficherBoutonImpression: true
+          Titre: Demande transmise avec succès
+          Texte1: Votre demande d'aide financière de dernier recours a été transmise avec succès.
+          Texte2: "Le no de confirmation est : {NoConfirmation}"
+          HtmlCustom:

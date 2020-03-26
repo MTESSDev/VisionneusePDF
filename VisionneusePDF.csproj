@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\confirmationbak.html" />
+    <None Include="wwwroot\ico-avertissement.cac.svg" />
+    <None Include="wwwroot\ico-erreur.cac.svg" />
+    <None Include="wwwroot\ico-information.cac.svg" />
+    <None Include="wwwroot\ico-succes.cac.svg" />
+    <None Include="wwwroot\indexbak.html" />
+    <None Include="wwwroot\pdf.cac.js" />
+    <None Include="wwwroot\pdf.worker.cac.js" />
+    <None Include="wwwroot\pdf_viewer.cac.css" />
+    <None Include="wwwroot\pdf_viewer.cac.js" />
+    <None Include="wwwroot\visionneusePdf.cac.css" />
+    <None Include="wwwroot\visionneusePdf.cac.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\pdfs\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Nustache" Version="1.16.0.10" />
+    <PackageReference Include="YamlDotNet" Version="8.1.0" />
+  </ItemGroup>
+
+
+
+</Project>
