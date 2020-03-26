@@ -1,0 +1,70 @@
+﻿@model dynamic
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirmation de transmission</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<base href="/" />
+    <script src="visionneusePdf.cac.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="visionneusePDF.cac.css">
+</head>
+<body class="page-confirmation">
+    <div class="container">
+        <main>
+            <div class="message succes flex-column flex-sm-row text-base">
+                <div class="entete d-flex align-items-center">
+                    <div class="icone"></div>
+                    <span class="titre d-sm-none ml-2">Demande transmise avec succès</span>
+                </div>
+                <div class="contenu zone-html">
+                    <div class="titre d-none d-sm-block">Demande transmise avec succès</div>
+                    <div class="texte">
+                        <p>Votre demande d'aide financière de dernier recours a été transmise avec succès.</p>
+                        <p>Le no de confirmation est : {{ide}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="menu">
+                <button type="button" class="btn btn-primaire" onclick="telechargerFormulaire(this);">
+                    <span>Télécharger une copie de votre demande</span>
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <script>
+
+        /* ============ DÉBUT - Définition des paramètres ==============*/
+        var executionLocale = false; //ATTENTION mettre false une fois gradué
+        var urlPdf = 'pdfs/test.pdf';
+        var urlTelechargementForm = '@Model.ConfigDocumentCourant.UrlTelechargementForm';
+        var noConfirmation = "@Model.Template("{{ide}}")"
+        /* ============== FIN - Définition des paramètres ==============*/
+
+
+        //Remplace le no de confirmation dans le message
+        $(".message .texte").html($(".message .texte").html().replace("{{ide}}", noConfirmation));
+
+        /**
+         * Télécharge le formulaire pour lequel on vient d'obtenir confirmation de transmission.
+         * @@param bouton objet bouton à l'origine de l'enregistrement.
+         */
+        function telechargerFormulaire(bouton) {
+
+            ajouterSpinnerElement(bouton);
+
+            if (executionLocale) {
+                setTimeout(function () {
+                    retirerSpinnerElement(bouton);
+                    alert("Simulation d'un fichier téléchargé");
+                }, 2000);
+            } else {
+                window.location = urlTelechargementForm + window.location.search;
+            }
+        };
+
+    </script>
+</body>
+</html>

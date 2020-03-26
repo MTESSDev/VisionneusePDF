@@ -1,0 +1,397 @@
+﻿
+/* permet de mettre un espace (en pixel) au dessus (top) d'un contenu */
+.espace-top5 { margin-top: 5px; }
+.espace-top10 { margin-top: 10px; }
+.espace-top15 { margin-top: 15px; }
+
+header {
+    margin: 15px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    background: transparent;
+}
+
+body {
+    font-family: Verdana;
+    font-size: 13px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.vcenter {
+  display: flex;
+  align-items: baseline;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* styles for validation helpers */
+.field-validation-error {
+    color: #b94a48;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+
+select.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+input[type=checkbox].input-validation-error {
+    border: 0 none;
+}
+
+/* .validation-summary-errors { */
+    /* color: #b94a48; */
+/* } */
+
+.validation-summary-valid {
+    display: none;
+}
+
+/* Message d'erreur jQuery validation UNIQUEMENT sur les elements non binder du modÃ¨le*/
+input.error {
+    border: 1px solid #b94a48;
+}
+
+select.error {
+    border: 1px solid #b94a48;
+}
+
+label.error {
+    color: #b94a48;
+}
+
+.padding0 {
+    padding: 0;
+}
+
+.margin-top-20 {
+    margin-top: 20px;
+}
+
+.italic {
+    font-style: italic;
+}
+
+/*
+        Ajouts partiels pour le datatable
+*/
+@media (min-width: 992px) {
+    .col-md-05 {
+        width: 4.1666%;
+    }
+}
+
+.glyphClickable {
+    cursor: pointer;
+}
+
+.tooltip-inner {
+    background-color: #3e6fc9;
+}
+
+.tooltip.left .tooltip-arrow {
+    border-left-color: #3e6fc9;
+}
+
+
+/* Gestion du Fil d'Ariane */
+.breadcrumb {
+    margin-bottom: 0px;
+}
+
+@media (max-width: 767px) {
+    .breadcrumb {
+        margin-bottom: 0px;
+    }
+
+        .breadcrumb > li + li:before {
+            content: "";
+            padding: 0;
+        }
+
+        .breadcrumb > li {
+            display: block;
+        }
+}
+
+/* Gestion du pied de page */
+footer {
+    text-align: center;
+}
+
+.zone-avec-bordure-2px {
+    border:2px solid #d0ad76;
+    padding: 10px;
+    
+}
+
+
+/* Gestion des titres */
+.titre-section {
+    font-size: 1.692em;
+    color: #314454;
+    margin: 10px 0;
+}
+
+.titre-service-section {
+    font-size: 1.385em;
+    color: #616161;
+    margin: 14px 0px;
+}
+
+h1.titre-niveau1-section {
+    /*font-size: 23px;
+    font-weight:bold;
+    color: #314454;
+    margin:17px 0px;*/
+  font-size: 1.692em;
+  line-height: 34px;
+  color: #314454;
+  margin-bottom: 5px;
+}
+
+h2.titre-niveau2-section {
+    margin:12px 0px;
+    font-size: 1.385em;
+    font-weight:bold;
+    color: #333333;
+}
+
+/* Barre de sÃ©paration sous le titre de niveau 2*/
+h2.titre-niveau2-section:after {
+    content: ' ';
+    display: block;
+    /*border: none;*/
+    /*height: 3px;*/
+    /*background-color: #333;*/
+    border: 1px solid #314454; 
+    margin: 0px 0px 0px 0px
+}
+
+h3.titre-niveau3-section {
+    margin:12px 0px;
+    font-size: 1.231em;
+    font-weight:bold;
+    color: #333333;
+}
+
+h4.titre-niveau4-section {
+    margin:17px 0px;
+    font-size: 1.231em;
+    color: #333333;
+}
+
+.modal-title {
+    font-size: 1.286em;
+}
+
+/* Gestion des encadrÃ©s d'information en haut des pages */
+.messages {
+    color: #000000;
+    padding: 10px;
+    margin: 20px 0;
+
+    /*font-family: Verdana;*/
+}
+
+.messages-info ul, .messages-info ol,
+.messages-confirmation ul, .messages-confirmation ol,
+.messages-severe ul, .messages-severe ol,
+.messages-attention ul, .messages-attention ol {
+    margin-bottom: 0px;
+}
+
+.messages-info {
+    border: 2px solid #314555;
+    background: #c2d9ec;
+    border-radius: 10px;
+}
+
+.messages-confirmation {
+    border: 2px solid #55603c;
+    background: #daecb9;
+    border-radius: 10px;
+}
+
+.messages-attention {
+    border: 2px solid #ec971f;
+    background: #fcf8e3;
+    border-radius: 10px;
+}
+
+.messages-severe {
+    border: 2px solid #940202;
+    background: #eed5d5;
+    font-weight:bold;
+    border-radius: 10px;
+}
+
+.messages-consigne {
+    color: #000000;
+    margin: 0px 0px 0px 0px
+}
+
+.validation-error {
+    display: block;
+    margin-left: 15px;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+.validation-summary-errors ul {
+    margin: 0;
+    padding: 0;
+}
+
+.validation-summary-errors li {
+    list-style: disc;
+    margin-left: 15px;
+    position: relative;
+    left:15px;
+    font-weight:normal
+}
+
+.validation-summary-errors > ul > li > a,
+.validation-summary-errors > ul > li > a:link,
+.validation-summary-errors > ul > li > a:visited,
+.validation-summary-errors > ul > li > a:hover
+{
+	text-decoration: none;
+	color:#000000;
+}
+
+label.presenceobligatoire {
+    color: #b94a48;
+    font-family: Verdana;
+    font-size: 0.923em;	
+	font-weight: normal;
+}
+
+label.presenceobligatoire:before {
+    content: '* ';
+	font-weight: bold;
+}
+
+/* styles for validation helpers */
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #e80c4d;
+}
+
+input[type=checkbox].input-validation-error {
+    border: 0 none;
+}
+
+.btn {
+    min-width: 150px;
+}
+
+.panel-footer-vide {
+    padding-top: 1px;
+}
+
+.texte-cache {
+    position: absolute;
+    top: -1000px;
+}
+
+a {
+    cursor: pointer;
+}
+
+/* ZONE DÃ‰PLOYABLE */
+div.zone-deployable > div.panel-group {
+    margin:24px 0 0 0;
+}
+
+div.zone-deployable > div.panel-group > div.panel > div.panel-heading {
+    line-height:24px;
+
+    background-color: #314454;
+    margin:8px 0 8px 0;
+}
+
+div.zone-deployable > div.panel-group > div.panel > div.panel-heading > div.panel-title {
+	background-size: 20px 20px;
+	background-position: right;
+	background-color: #314454;
+	background-repeat: no-repeat;
+    background-image: url('right-white-arrow.cac.svg');
+}
+
+div.zone-deployable > div.panel-group > div.panel > div.panel-heading > div.panel-title > a {
+    display: block;
+    font-family: Verdana;
+    font-size: 1.077em;
+    color: #ffffff;
+}
+
+div.zone-deployable > div.panel-group > div.panel > div.panel-heading > div.panel-title > a:link {
+    text-decoration: none;
+}
+
+/* css Bootstrap modifiÃ©s (redÃ©finition)    */
+
+.form-horizontal div.form-group {
+  margin-left:0px;
+}
+
+.zone-avec-bordure-2px .form-group label.control-label {
+	text-align:left;    
+}
+.form-group .control-label {
+  font-weight:normal;
+}
+
+.form-group .control-label.required:after {
+  content:"*";
+  color:#b94a48;
+  font-weight:bolder;
+}
+ 
+.form-control::-moz-placeholder, /* Internet Explorer 10-11 */
+.form-control:-moz-placeholder, 
+.form-control::-webkit-input-placeholder {/* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #000000;
+}
+
+/* Pour l'instant, ces rÃ¨gles CSS ne fonctionnent, chercher dans les temps libres, on passe Ã  autre chose [un commande JQUERY fera l'affaire -> mise Ã  jour ... Ã§a ne marche pas avec un JQUERY :-( ]*/
+input[type=text][disabled] input[type="text"][readonly].form-control[]:-ms-input-placeholder, input[type=text].form-control.disabled::-moz-placeholder, input[type=text].form-control[readonly]::-moz-placeholder, input[type=text].form-control.disabled::-webkit-input-placeholder, input[type=text].form-control[readonly]::-webkit-input-placeholder {/* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #000000;
+}
+
+ul.pagination li a {
+ line-height: 17px;
+ font-size: 0.923em;
+}
+
+ul.pagination li.active a {
+    color:#314454;
+}

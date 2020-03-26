@@ -1,0 +1,189 @@
+﻿body {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    /* Set padding to keep content from hitting the edges */
+    .body-content {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    /* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+    .dl-horizontal dt {
+        white-space: normal;
+    }
+
+    .gras {
+        font-weight: bold;
+    }
+
+    .aucunPaddingGauche {
+        padding-left: 0px;
+    }
+
+    .block {
+        display: block;
+        clear: both;
+    }
+
+    .bordurePiedDePage {
+        border-top: 1px solid black;
+    }
+
+    .form-horizontal .form-group {
+        margin-right: 0px;
+    }
+
+    .labelMotDePasse {
+        font-weight: normal;
+        margin-left: 10px;
+    }
+
+    #Contient8Caracteres, #ContientMajMin, #ContientChiffre, #ContientCaractereSpecial {
+        height: 18px;
+        width: 18px;
+    }
+
+    .cacher {
+        display: none;
+    }
+
+    .estValide {
+        color: #2B7C02;
+    }
+
+    .imageCheckbox {
+        margin-top: 4px;
+        height: 18px;
+        width: 18px;
+        vertical-align: initial;
+    }
+
+    .inline-block {
+        display: inline-block;
+    }
+
+    .souligne {
+        text-decoration: underline;
+    }
+
+    .btnDeconnect {
+        background-color: transparent;
+        border: hidden;
+        padding-right: 0px;
+    }
+
+    .BackImgDeconnect {
+        position: relative;
+        z-index: 1;
+    }
+
+    .FrontImgDeconnect {
+        position: absolute;
+        z-index: 2;
+        padding-top: 4px;
+        padding-left: 3px;
+    }
+
+    .margeSectionFormulaire {
+        margin-top: 14px;
+    }
+
+    .cliquable {
+        cursor: pointer;
+    }
+
+    .perteDePoids {
+        font-weight: normal;
+    }
+
+    /* Overrides PIV */
+    .titreApplication {
+        font-size: 1.692em;
+        line-height: 34px;
+        color: #314454;
+        margin-bottom: 5px;
+    }
+
+    .nomEntreprise {
+        font-size: 1.077em;
+        line-height: 34px;
+        color: #314454;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    /*header .titreApplication, .nomEntreprise{
+    padding-left: 195px;
+}*/
+
+    #lblDeconnexion {
+        font-weight: normal;
+    }
+
+    .modal-title {
+        font-size: 1.286em;
+    }
+
+    .modal-header {
+        border-bottom: 0 none;
+    }
+
+    .modal .modal-content {
+        max-height: 835px;
+        overflow-y: auto;
+    }
+
+    .modal-footer {
+        border-top: 0 none;
+    }
+
+    .close-modal {
+        position: absolute;
+        right: 0;
+        z-index: 1;
+    }
+
+    .modal-footer > .btn {
+        min-width: inherit;
+        color: #000000;
+        background: linear-gradient(#f9f9f9, #e3e3e3);
+        border-color: #ccc;
+    }
+
+    .link {
+        color: #337ab7;
+        text-decoration: underline;
+    }
+
+    #_table tbody:hover {
+        cursor: pointer;
+    }
+
+    table.dataTable tbody tr td {
+        word-wrap: break-word;
+    }
+
+    .breakAll {
+        word-break: break-all;
+    }
+
+    .alignerDroite {
+        float: right;
+        margin-left: 0.385em;
+    }
+
+    .sousTitre {
+        font-weight: bold;
+        font-size: 1.5em;
+    }
+
+@media (min-width: 768px) {
+    .ajustementExtranet {
+        position: relative;
+        top: 4em;
+    }
+}

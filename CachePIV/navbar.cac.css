@@ -1,0 +1,217 @@
+/*
+    Barre de navigation
+*/
+.navbar 
+{
+    margin-bottom: 0px;
+}
+
+.navbar-mess 
+{
+    background-color: #B6C3CC;
+    border-color: #012D7E;
+    border: 0;
+    /* margin: 0 -15px; */
+    border-radius: 0px;
+}
+
+.navbar-mess .navbar-nav li 
+{
+	border-style: solid;
+	border-width: 0 4px 0 0;
+	border-color: #fff;
+	float: left;
+}
+
+/* un item */
+.navbar-mess .navbar-nav li:first-child:nth-last-child(1) {
+	width: 100%;
+}
+
+/* deux items */
+.navbar-mess .navbar-nav li:first-child:nth-last-child(2),
+.navbar-mess .navbar-nav li:first-child:nth-last-child(2) ~ li {
+	width: 50%;
+}
+
+/* trois items */
+.navbar-mess .navbar-nav li:first-child:nth-last-child(3),
+.navbar-mess .navbar-nav li:first-child:nth-last-child(3) ~ li {
+	width: 33.3333%;
+}
+
+/* quatre items */
+.navbar-mess .navbar-nav li:first-child:nth-last-child(4),
+.navbar-mess .navbar-nav li:first-child:nth-last-child(4) ~ li {
+	width: 25%;
+}
+
+/* cinq items */
+.navbar-mess .navbar-nav li:first-child:nth-last-child(5),
+.navbar-mess .navbar-nav li:first-child:nth-last-child(5) ~ li {
+	width: 20%;
+}
+
+/* 6 items */
+.navbar-mess .navbar-nav li:first-child:nth-last-child(6),
+.navbar-mess .navbar-nav li:first-child:nth-last-child(6) ~ li {
+	width: 16.6666666667%;
+}
+
+/* 7 items */
+.navbar-mess .navbar-nav li:first-child:nth-last-child(7),
+.navbar-mess .navbar-nav li:first-child:nth-last-child(7) ~ li {
+	width: 14.2857142857%;
+}
+
+/* 8 items */
+.navbar-mess .navbar-nav li:first-child:nth-last-child(8),
+.navbar-mess .navbar-nav li:first-child:nth-last-child(8) ~ li {
+	width: 12.5%;
+}
+
+.navbar-mess .navbar-nav li a 
+{
+    text-align: center;
+    color: #000000;
+	font-weight:bold;
+	font-size:12px;
+	font-family: Verdana,Geneva,sans-serif; 
+}
+
+.navbar-mess .navbar-nav li a:link, 
+.navbar-mess .navbar-nav li a:visited {
+  cursor: pointer;
+}
+
+.navbar-mess .navbar-nav li a.disabled, 
+.navbar-mess .navbar-nav li a.disabled {
+  cursor: not-allowed;
+}
+.navbar-mess .navbar-nav > li:first-child 
+{
+	/* border-width: 0 2px 0 2px; */
+}
+
+.navbar-mess .navbar-nav li a:hover,
+.navbar-mess .navbar-nav li a:focus 
+{
+	background-color: #B6C3CC;
+}
+
+.navbar-mess .dropdown-menu > .active > a,
+.navbar-mess .dropdown-menu > .active > a:focus,
+.navbar-mess .dropdown-menu > .active > a:hover,
+.navbar-mess .navbar-nav .active > a,
+.navbar-mess .navbar-nav .active > a:hover,
+.navbar-mess .navbar-nav .active > a:focus 
+{
+	background-color: #314555;
+	background-image:none;
+	color: #fff;
+}
+
+.navbar-mess .navbar-toggle 
+{
+	border-color: #012D7E;
+}
+
+.navbar-mess .navbar-toggle:hover,
+.navbar-mess .navbar-toggle:focus 
+{
+	background-color: #012D7E;
+}
+
+.navbar-mess .navbar-toggle .icon-bar 
+{
+	background-color: #fff;
+}
+
+.navbar-mess .navbar-collapse,
+.navbar-mess .navbar-form 
+{
+	border-color: #012D7E;
+}
+
+@media (max-width: 767px) 
+{
+	.navbar-mess .navbar-nav li 
+	{
+		float: none;
+	}
+	.navbar-mess .navbar-nav .open .dropdown-menu .dropdown-header 
+	{
+		border-color: #012D7E;
+	}
+
+    .navbar-mess .navbar-nav .open .dropdown-menu .divider 
+	{
+        background-color: #0249CB;
+    }
+
+    .navbar-mess .navbar-nav .open .dropdown-menu li a 
+	{
+        background-color: #ffffff;
+        color: #000000;
+    }
+
+	.navbar-mess .navbar-nav .open .dropdown-menu li a:hover,
+	.navbar-mess .navbar-nav .open .dropdown-menu li a:focus 
+	{
+		color: #fff;
+		background-color: transparent;
+	}
+
+    .navbar-mess .navbar-nav .open .dropdown-menu .active a,
+    .navbar-mess .navbar-nav .open .dropdown-menu .active a:hover,
+    .navbar-mess .navbar-nav .open .dropdown-menu .active a:focus 
+	{
+        color: #fff;
+        background-color: #314454;
+    }
+}
+
+@media (min-width: 768px) 
+{
+	
+	/* un item */
+	.navbar-mess .navbar-nav li:first-child:nth-last-child(1) {
+	  width: 100%;
+	}
+
+	/* deux items */
+	.navbar-mess .navbar-nav li:first-child:nth-last-child(2),
+	.navbar-mess .navbar-nav li:first-child:nth-last-child(2) ~ li {
+	  width: 50%;
+	}
+
+	/* trois items */
+	.navbar-mess .navbar-nav li:first-child:nth-last-child(3),
+	.navbar-mess .navbar-nav li:first-child:nth-last-child(3) ~ li {
+	  width: 33.3333%;
+	}
+
+	/* quatre items */
+	.navbar-mess .navbar-nav li:first-child:nth-last-child(4),
+	.navbar-mess .navbar-nav li:first-child:nth-last-child(4) ~ li {
+	  width: 25%;
+	}
+
+	/* cinq items */
+	.navbar-mess .navbar-nav li:first-child:nth-last-child(5),
+	.navbar-mess .navbar-nav li:first-child:nth-last-child(5) ~ li {
+	  width: 20%;
+	}
+
+	/* 6 items */
+	.navbar-mess .navbar-nav li:first-child:nth-last-child(6),
+	.navbar-mess .navbar-nav li:first-child:nth-last-child(6) ~ li {
+	  width: 16.6666666667%;
+	}
+
+	/* 7 items */
+	.navbar-mess .navbar-nav li:first-child:nth-last-child(7),
+	.navbar-mess .navbar-nav li:first-child:nth-last-child(7) ~ li {
+	  width: 14.2857142857%;
+	}	
+}

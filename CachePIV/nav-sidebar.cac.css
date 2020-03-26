@@ -1,0 +1,215 @@
+﻿/* icônes retrouvées sur le site */
+/*
+    https://www.flaticon.com/authors/smashicons
+*/
+
+.nav-sidebar {
+    margin: 14px 0 ;
+
+    /*margin-bottom: 10px;*/
+}
+
+.nav-sidebar a {
+  color: #000000;
+  text-decoration: none;
+}
+
+.nav-sidebar ul {
+    list-style-type: none;
+    padding-left: 0px;
+}
+
+.nav-sidebar > ul {
+
+    
+    border-style: solid;
+    border-color: #B6C3CC;
+    /*border-width: 2px;*/
+}
+.nav-sidebar ul[aria-hidden=true] {
+  display: none;
+} 
+/* Niveau 1*/
+
+.nav-sidebar > ul > li.panel-heading {
+    border-radius: 0px;
+    background-color: #B6C3CC;
+    padding-left:0px;
+    padding-right:0px;
+	padding-bottom:0px;
+    margin-bottom: 5px;
+}
+
+.nav-sidebar > ul  > li[class~='panel-heading']:last-of-type  {
+    margin-bottom: 0px;
+}
+
+.nav-sidebar > ul > li.panel-heading.active {
+    background-color: #314555;
+    border-radius: 0px;
+}
+
+.nav-sidebar > ul > li.panel-heading.active > a{
+	color : #ffffff;
+}
+
+.nav-sidebar > ul > li.panel-heading > a {
+    display: block;
+    padding-bottom:10px;
+    padding-left:15px;
+}
+
+.nav-sidebar > ul > li.panel-heading > a:link {
+    text-decoration: none;
+}
+
+.nav-sidebar > ul > li.panel-group.panel-heading.panel-expand {
+    padding-bottom:0px;
+}
+
+.nav-sidebar > ul > li.panel-group.panel-heading > a {
+	background-size: 20px 20px;
+	background-position: right;
+	background-repeat: no-repeat;
+	background-image: url('right-arrow.cac.svg');
+}
+
+.nav-sidebar > ul > li.panel-group.panel-heading.panel-expand {
+    margin-bottom:0px;
+	padding-bottom:5px;
+}
+
+.nav-sidebar > ul > li.panel-group.panel-heading > a[aria-expanded=true]  {
+	background-image: url('down-arrow.cac.svg');
+}
+
+.nav-sidebar > ul > li.panel-group.panel-heading >  a:link {
+    text-decoration: none;
+}
+
+/* Niveau 2*/
+
+.nav-sidebar > ul > li.panel-group.panel-heading > ul {
+    list-style-type: none;
+    padding-left:0px;
+    padding-right:0px;
+    padding-bottom:0px;
+    margin-bottom: 0px;
+    border-radius: 0px;
+    background-color: #ffffff;
+}
+.nav-sidebar > ul > li.panel-group.panel-heading > ul > li.panel-heading {
+    padding-left:0px;
+    padding-right:0px;
+    border-radius: 0px;
+    background-color: #ffffff;
+    /* border: 1px solid #B6C3CC; */
+	border-bottom : 1px solid #B6C3CC;
+	border-top : 1px solid #B6C3CC;
+
+}
+
+.nav-sidebar > ul > .panel-heading > ul > li.panel-heading:hover {
+    border: 1px solid #23527c;
+    background-color: #5a6a77;
+    color : #ffffff;
+}
+
+/*avec déploiement*/
+.nav-sidebar > ul > li.panel-group.panel-heading > ul > li.panel-group.panel-heading.panel-expand {
+    padding-bottom:0px;
+}
+
+.nav-sidebar > ul > li.panel-group.panel-heading > ul > li.panel-group.panel-heading > a {
+	background-size: 20px 20px;
+	background-position: right;
+	background-repeat: no-repeat;
+	background-image: url('right-arrow.cac.svg');
+    background-color: #ffffff;
+    display: block;
+    border-radius: 0px;
+    padding-left:15px;
+}
+
+.nav-sidebar > ul > li.panel-group.panel-heading > ul > li.panel-group.panel-heading > a[aria-expanded=true] {
+	background-image: url('down-arrow.cac.svg');
+	padding-bottom:10px;
+}
+/*sans déploiement*/
+
+.nav-sidebar > ul > li.panel-group.panel-heading > ul > li.panel-heading > a {
+	display: block;
+    padding-left:15px;
+}
+.nav-sidebar > ul > li.panel-group.panel-heading > ul > li.panel-heading > a:link {
+    text-decoration: none;
+}
+
+/*sans déploiement et active*/
+.nav-sidebar > ul > li.panel-group.panel-heading > ul > li.panel-heading.active {
+    background-color: #314555;
+    border-radius: 0px;
+}
+
+.nav-sidebar > ul > li.panel-group.panel-heading > ul > li.panel-heading.active > a {
+    color : #ffffff;
+}
+
+
+
+/*div.nav-sidebar > div.panel-group > div.panel > div.panel-body > div.panel-inner > div.panel-group > div.panel > div.panel-body {
+    padding-left:0px;
+    padding-right:0px;
+    padding-bottom:0px;
+}*/
+
+/* Niveau 3*/
+.nav-sidebar > ul > li.panel-group.panel-heading > ul > li.panel-group.panel-heading > ul >  li.panel-heading {
+    padding-left:16px;
+    /* border: 1px solid #B6C3CC;     */
+	border-bottom : 1px solid #B6C3CC;
+	border-top : 1px solid #B6C3CC;	
+}
+.nav-sidebar > ul > li.panel-group.panel-heading > ul > li.panel-group.panel-heading > ul >  li.panel-heading > a {
+	background-size: 5px 5px;
+	background-position: left;
+	background-repeat: no-repeat;
+	background-image: url('square.cac.svg');/* trouvé sous le nom 'right-arrow-hand-drawn-outline.svg' */
+    display: block;
+    border-radius: 0px;
+    padding-left:15px;
+}
+
+.nav-sidebar > ul > li.panel-group.panel-heading > ul > li.panel-group.panel-heading > ul > li.panel-heading:hover {
+    border: 1px solid #23527c;
+    background-color: #5a6a77;
+    color : #ffffff;
+    text-decoration: none;
+}
+
+.nav-sidebar > ul > li.panel-group.panel-heading > ul > li.panel-group.panel-heading > ul  > li.panel-heading > a:link {
+    text-decoration: none;
+}
+
+/* ACTIVE */
+.nav-sidebar > ul > li.panel-group.panel-heading > ul > li.panel-group.panel-heading > ul > li.panel-heading.active {
+    background-color: #314555;
+    border-radius: 0px;
+}
+
+.nav-sidebar > ul > li.panel-group.panel-heading > ul > li.panel-group.panel-heading > ul > li.panel-heading.active > a {
+    background-image: url('square-white.cac.svg');/* trouvé sous le nom 'right-arrow-hand-drawn-outline.svg' */
+    color : #ffffff;
+}
+
+/*.nav-sidebar ul:hover {
+    border: 1px solid #23527c;
+    background-color: #5a6a77;
+    color : #ffffff;
+}*/
+
+
+
+
+
+

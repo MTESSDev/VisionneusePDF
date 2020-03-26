@@ -1,0 +1,64 @@
+@model Menu
+
+@using CAC.PIV.Client.Models
+@using CAC.PIV.Client.SectionConfiguration;
+
+@{
+    var config = GestionConfiguration.Obtenir<CACPIVConfiguration>();
+    string saveur = config.Saveur;
+    string classeMarge = string.Empty;
+    string urlGouvernement = string.Empty;
+    string altGouvernement = string.Empty;
+    string image = string.Empty;
+    string application = config.Application;
+
+    if (!saveur.Equals("extranet", StringComparison.InvariantCultureIgnoreCase))
+    {
+        urlGouvernement = "http://www.mtess.gouv.qc.ca/";
+        altGouvernement = "Ministère du Travail, de l'Emploi et de la Solidarité sociale. Ce lien ouvre dans une nouvelle fenêtre.";
+    }
+    else
+    {
+        urlGouvernement = "http://gouv.qc.ca/";
+        altGouvernement = "Gouvernement du Québec";
+        classeMarge = "margeExtranet";
+    }
+}
+
+<div class="container">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".piv">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a href="@urlGouvernement" target="_blank" class="piv-logo"><img src="piv-queb.cac.svg" width="205" height="82" alt="@altGouvernement" /></a>
+    </div>
+    <div class="piv collapse navbar-collapse">
+        @if (!saveur.Equals("extranet", StringComparison.InvariantCultureIgnoreCase))
+        {
+            <div class="piv-background">
+                <img src="piv.cac.jpg" alt="intranet">
+            </div>
+        }
+        <ul class="nav navbar-nav @classeMarge">
+            @foreach (MenuItem menuItem in Model.MenuItems)
+            {
+                <li>
+                    @if (menuItem.HtmlPur != null)
+                    {
+                        @menuItem.HtmlPur
+                    }
+                    else if (menuItem.UrlApplication != null)
+                    {
+                        @menuItem.UrlApplication
+                    }
+                    else
+                    {
+                        <a id="@menuItem.Id" href="@menuItem.Url" @menuItem.HtmlAttributes> @menuItem.Texte </a>
+                    }
+                </li>
+            }
+        </ul>
+    </div>
+</div>

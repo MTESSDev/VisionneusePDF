@@ -1,0 +1,273 @@
+﻿@model dynamic
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulaire de demande d'aide de dernier recours</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <base href="/" />
+    <script src="pdf.cac.js"></script>
+    <script src="pdf_viewer.cac.js"></script>
+    <script src="visionneusePdf.cac.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="pdf_viewer.cac.css">
+    <link rel="stylesheet" href="visionneusePdf.cac.css">
+</head>
+<body>
+    <div id="chargementEnCours">
+        <div class="spinner-border text-center" role="status"></div>
+        <div>Chargement en cours...</div>
+    </div>
+
+    <div class="conteneur-principal">
+        <div class="mx-auto p-3 conteneur-pdf" style="display:none">
+            <div class="section-enregistrement">
+                <div class="d-flex">
+                    <div class="icone">
+                        <img src="ico-information.cac.svg" alt="Message d'information">
+                    </div>
+                    <div class="message-enregistrement">
+                        <div>Vous pouvez enregistrer votre formulaire en tout temps.</div>
+                        <div>Un lien vous permettant de compléter votre formulaire vous sera transmis par courriel.</div>
+                    </div>
+                    <button class="btn btn-primaire ml-auto d-none d-md-block" onclick="afficherModalEnregistrementFormulaire(this);">
+                        <span>Enregister ma demande</span>
+                    </button>
+
+                </div>
+                <button class="btn btn-primaire d-md-none mt-3" onclick="afficherModalEnregistrementFormulaire(this);">
+                    <span>Enregister ma demande</span>
+                </button>
+            </div>
+
+            <div id="pdfTarget">
+            </div>
+
+            <div class="section-soumission">
+                <div class="message-soumission">
+                    <span>Une fois le formulaire complété, cliquez soumettre. (Texte final à définir)</span>
+                </div>
+                <button id="btnSoumettre" class="btn btn-primaire" onclick="soumettreFormulaire(this);">
+                    <span>Soumettre ma demande</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalEnregistrerFormulaire" class="fenetre-message modal" data-backdrop="static" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header d-flex align-items-center">
+                    <h1 class="modal-title">Enregistrer pour plus tard?</h1>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fermer">
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class=" texte-explicatif-champs-obligatoires d-flex justify-content-end" aria-hidden="true"><span class="icone-champ-requis" aria-hidden="true">*</span><span>indique une réponse obligatoire.</span></div>
+                    <div class="row">
+                        <div class="col-12 form-group">
+                            <label for="adresseCourrielEnregistrement">Saisir l'adresse courriel où le lien vous permettant de compléter le formulaire sera envoyée</label>
+                            <span class="icone-champ-requis" aria-hidden="true">*</span>
+                            <input id="adresseCourrielEnregistrement" required class="form-control" type="email" />
+                            <span id="erreurCourriel" class="text-danger" style="display:none">L'adresse courriel est obligatoire et doit avoir un format valide.</span>
+                        </div>
+                        <div class="col-12">
+                            <label for="motPasse">Saisir un mot de passe qui vous permettra de récupérer votre formulaire</label>
+                            <span class="info-attendue">(5 caractères minimum)</span>
+                            <span class="icone-champ-requis" aria-hidden="true">*</span>
+                            <input id="motPasse" class="form-control" required type="text" />
+                            <span id="erreurMotPasse" class="text-danger" style="display:none">Le mot de passe est obligatoire et doit avoir au moins 5 caractères.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondaire mr-3" data-dismiss="modal">Annuler</button>
+                    <button type="button" class="btn btn-primaire m-0" onclick="enregistrerFormulaire(this);">
+                        <span>Enregistrer</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /* ============ DÉBUT - Définition des paramètres ==============*/
+        var executionLocale = false; //ATTENTION mettre false une fois gradué
+        var urlPdf = executionLocale?'pdfs/test.pdf':'@Model.ConfigDocumentCourant.UrlPdf';
+        var urlEnregistrementForm = executionLocale?'AFDR@NOFORM':'@Model.ConfigDocumentCourant.UrlEnregistrementForm';
+        var urlSoumissionForm =  executionLocale?'AFDR@NOFORM':'@Model.ConfigDocumentCourant.UrlSoumissionForm';
+        var urlTelechargementForm = executionLocale?'AFDR@NOFORM':'@Model.ConfigDocumentCourant.UrlTelechargementForm';
+        var urlPageSuccesSoumission = executionLocale?'confirmation.html':'@Model.ConfigDocumentCourant.UrlConfirmation';
+        var cheminPdfWorker = 'pdf.worker.cac.js';
+
+        /* ============== FIN - Définition des paramètres ==============*/
+
+
+        window.onload = function () {
+
+            pdfjsLib.GlobalWorkerOptions.workerSrc = cheminPdfWorker;
+
+            var container = document.getElementById('pdfTarget');
+
+            /*Initialiser certaines valeurs*/
+            var values = {
+                //'Raison3': true,
+            };
+
+            var loadingTask = pdfjsLib.getDocument(urlPdf);
+            loadingTask.promise.then(function (doc) {
+
+                var promises = []
+                for (var i = 1; i <= doc.numPages; i++) {
+                    var promise = doc.getPage(i).then(function (pdfPage) {
+
+                        pdfjsViewer.FormFunctionality.setPostCreationTweak(function (fieldType, elementId, element) {
+                            element.title = elementId.alternativeText;
+                        });
+
+                        return pdfjsViewer.FormFunctionality.render(1094, null, pdfPage, container, values, { hideForms: false });
+                    });
+                    promises.push(promise);
+                }
+                Promise.all(promises).then(function () {
+                    executerTraitementApresChargementPdf(true);
+                });
+            })
+                .catch(function (error) {
+                    alert("banane");
+                    executerTraitementApresChargementPdf(false);
+                });
+        };
+
+        /**
+         * Exécute tout le traitement requis une fois que le fichier PDF a été chargé et est affiché à l'écran.
+         * @@param succes booléen indiquant si le chargement s'est complété avec succès ou non.
+         */
+        function executerTraitementApresChargementPdf(succes) {
+            terminerChargementEnCours();
+        };
+
+        /** Retire tous les éléments visuels liés au chargement en cours. */
+        function terminerChargementEnCours() {
+            $("#chargementEnCours").fadeOut().hide();
+            $(".conteneur-pdf").fadeIn();
+        };
+
+        /**
+         * Enregistrement du formulaire.
+         * @@param bouton objet bouton à l'origine de l'enregistrement.
+         */
+        function enregistrerFormulaire(bouton) {
+
+            // Valider le courriel
+            if (validerFormEnregistrement()) {
+                ajouterSpinnerElement(bouton);
+
+                if (executionLocale) {
+                    //Simuler retour post
+                    setTimeout(function () {
+                        //TODO message confirmation courriel envoyé
+                        console.log("Url post enregistrement -> " + obtenirUrlPostEnregistrementFormulaire());
+                        $("#modalEnregistrerFormulaire").modal("hide");
+                        afficherMessageConfirmationEnregistrement();
+                        retirerSpinnerElement(bouton);
+                    }, 2000);
+                } else {
+                    $.post(obtenirUrlPostEnregistrementFormulaire(), pdfjsViewer.FormFunctionality.getFormValues())
+                        .done(function (retour) {
+                            afficherMessageConfirmationEnregistrement();
+                            $("#modalEnregistrerFormulaire").modal("hide");
+                        })
+                        .fail(function () {
+                            //TODO message erreur
+                            alert("error");
+                        })
+                        .always(function () {
+                            retirerSpinnerElement(bouton);
+                        });
+                }
+
+                $("#erreurCourriel").hide();
+                $("#erreurMotPasse").hide();
+            }
+        };
+
+        /**
+         * Obtient l'url requise au post pour enregistrement du formulaire.
+         * */
+        function obtenirUrlPostEnregistrementFormulaire() {
+            return "{0}?email={1}&pass={2}".format(urlEnregistrementForm, $("#adresseCourrielEnregistrement").val(), $("#motPasse").val());
+        };
+
+        /**
+         * Valide le formulaire d'enregistrement. Affiche les erreurs le cas échéant.
+         * @@returns booléen indiquant si le formulaire est valide.
+         * */
+        function validerFormEnregistrement() {
+            var erreur = false;
+
+            if (!estCourrielValide($("#adresseCourrielEnregistrement").val())) {
+                erreur = true;
+                $("#erreurCourriel").show();
+            } else {
+                $("#erreurCourriel").hide();
+            }
+
+            if (!estNombreCaracteresSuperieurA($("#motPasse").val(), 4)) {
+                erreur = true;
+                $("#erreurMotPasse").show();
+            } else {
+                $("#erreurMotPasse").hide();
+            }
+
+            return !erreur;
+        };
+
+        /**
+         * Affiche la fenêtre modale permettant de saisir le courriel où envoyer le lien afin de poursuivre la saisie du formulaire et procéder et exécuter la demande d'envoi de courriel.
+         */
+        function afficherModalEnregistrementFormulaire() {
+            var fenetreModale = $("#modalEnregistrerFormulaire");
+            fenetreModale.find("#adresseCourrielEnregistrement").val("");
+            $("#erreurCourriel").hide();
+            fenetreModale.modal("show");
+
+            conserverFocusElement(fenetreModale.get(0));
+        };
+
+        /**
+         * Soumission du formulaire.
+         * @@param bouton objet bouton à l'origine de l'enregistrement.
+         */
+        function soumettreFormulaire(bouton) {
+
+            ajouterSpinnerElement(bouton);
+
+            if (executionLocale) {
+                //Simuler retour post
+                setTimeout(function () {
+                    var retour = "asdfasdfdsafsdafd343243242";
+                    window.location = window.location = urlPageSuccesSoumission + "?data=" + retour;
+                }, 2000);
+            } else {
+                $.post(urlSoumissionForm, pdfjsViewer.FormFunctionality.getFormValues())
+                    .done(function (retour) {
+                        window.location = urlPageSuccesSoumission + "?data=" + retour;
+                    })
+                    .fail(function () {
+                        //TODO message erreur
+                        alert("error");
+                    });
+            }
+        };
+
+
+        function estNombreCaracteresSuperieurA(champ, nbCaracteres) {
+            return champ!=null && champ.length > nbCaracteres;
+        };
+
+    </script>
+</body>
+</html>

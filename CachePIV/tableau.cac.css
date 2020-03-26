@@ -1,0 +1,244 @@
+table.tableau
+{
+	font-size: 0.923em;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	border-collapse: separate;
+	width: 100%;
+	margin-bottom: 0px;
+	color: #000000;
+}
+
+
+table.tableau thead tr
+{
+	cursor: default;
+	/*height: 28px;*/
+	border: solid 1px #000;
+	text-decoration: none;
+	color: #ffffff;
+	line-height: 28px;
+}
+
+table.tableau thead>tr>th,
+table.tableau thead>tr>th.triActif,
+table.tableau thead>tr>th.triInactif,
+table.tableau thead>tr>th.aucunTri
+{
+	padding: 0px;
+	margin: 3px;
+	padding-left: 5px;
+	padding-right: 15px;
+	color: #000000;
+	vertical-align: middle;
+	border-right-color: #f0d89a;
+	border-right-width: 10px;
+	border-right-style: solid;
+	border-left-color: #ffffff;
+	border-left-width: 1px;
+	border-left-style: solid;
+	
+}
+
+table.tableau thead tr th.triAsc.triActif
+{
+	background-size: 10px 10px;
+	background-position: right;
+	background-color: #f0d89a;
+	background-repeat: no-repeat;
+	background-image: url('triAsc_triActif.cac.svg'); /* trouvé sous le nom 'iconmonstr-sort-5.svg' */
+}
+
+table.tableau thead tr th.triDesc.triActif 
+{
+	background-size: 10px 10px;
+	background-position: right;
+	background-color: #f0d89a;
+	background-repeat: no-repeat;
+	background-image: url('triDesc_triActif.cac.svg');/* trouvé sous le nom 'iconmonstr-sort-7.svg' */
+}
+
+table.tableau thead tr th.triAsc.triInactif
+{
+	background-size: 10px 10px;
+	background-position: right;
+	background-color: #f0d89a;
+	background-repeat: no-repeat;
+	background-image: url('triAsc_triInactif.cac.svg');/* trouvé sous le nom 'iconmonstr-sort-6.svg' */
+}
+
+table.tableau thead tr th.triDesc.triInactif 
+{
+	background-size: 10px 10px;
+	background-position: right;
+	background-color: #f0d89a;
+	background-repeat: no-repeat;
+	background-image: url('triDesc_triInactif.cac.svg');/* trouvé sous le nom 'iconmonstr-sort-8.svg' */
+}
+
+/*table.tableau thead tr th:last-child
+{
+    width:0px;
+}*/
+
+table.tableau tbody tr 
+{
+	line-height: 28px;
+	height: 20px;
+	text-align: left;
+	border-bottom-color: #c8d5df;
+	vertical-align: central;
+}
+
+/* table.tableau tbody tr.odd  */
+/* { */
+    /* background-color:#efefef; */
+/* } */
+
+table.tableau tbody tr td 
+{
+	padding: 2px 5px;
+	/*line-height: 1.2em;*/
+	color: #000000;
+}
+
+table.tableau tbody tr.inactif 
+{
+    font-style: italic;
+    color: #333333;
+    height: 20px;
+}
+
+
+table.tableau tbody tr td span 
+{
+	background-position:0px center;
+	background-repeat: no-repeat;
+	height: 18px;
+	line-height: 18px;
+}
+
+table.tableau tbody tr td.btn
+{
+    padding-right:0;
+}
+
+
+table.tableau tbody tr td a,
+table.tableau tbody tr td a:link,
+table.tableau tbody tr td a:visited
+table.tableau tbody tr td a:hover
+{
+    background-color:inherit;
+    color:#000000;
+    cursor:default;
+}
+
+
+table.tableau tbody tr.actif 
+{
+	background-color: #b0bed9;
+}
+
+
+table.tableau tbody tr:hover
+{
+	background-color: #f7f7f7;
+}
+
+table.tableau tr img 
+{
+    border:none;
+    cursor:pointer;
+}
+
+table.tableau thead tr .tablesorter-header.sorter-false
+{
+    background:inherit;
+    cursor:inherit;
+    padding-left:0;
+    width:32px;
+    text-align:center;
+}
+
+table.tableau thead tr .tablesorter-header
+{
+    background-image:url("tableauSort.cac.png");
+    background-repeat:no-repeat;
+    background-position: 0 -40px;
+    cursor:pointer;
+    padding-left:20px;
+}
+
+table.tableau thead tr .tablesorter-headerDesc 
+{
+    background-image:url("tableauSort.cac.png");
+    background-repeat:no-repeat;
+    background-position: 0 0;
+}
+
+table.tableau thead tr .tablesorter-headerAsc 
+{
+    background-image:url("tableauSort.cac.png");
+    background-repeat:no-repeat;
+    background-position: 0 -20px;
+}
+
+table.tableau tfoot tr,
+table.tableau tfoot tr td 
+{
+    vertical-align:top;
+    border-top:1px solid #000;
+    padding-top:2px;
+}
+
+table.tableau tfoot tr span.btn
+{
+    margin-top: 1px;
+    color: #555555;
+    padding: 3px;
+}
+
+table.tableau tfoot tr span.btn:hover
+{
+   border: 1px solid #999999;
+   cursor: pointer;
+   color: #000000;
+   padding: 2px;
+}
+
+/* Libellé rangé */
+table.tableau tbody tr td.actifRow 
+{
+	background-image: url("puce_green.cac.png");
+	background-repeat: no-repeat;
+	background-position:2px center;
+	padding-left: 22px;
+}
+
+table.tableau tbody tr td.inactif 
+{
+	background-image: url("puce_red.cac.png");
+	background-repeat: no-repeat;
+	background-position:2px center;
+	padding-left: 22px;
+}
+
+table.tableau tbody tr td.warning 
+{
+	background-image: url("avertissement.cac.png");
+	background-repeat: no-repeat;
+	background-position: 2px center;
+	padding-left: 22px;
+}
+
+.correctifBarreDefilementHead {
+    z-index: 1;
+}
+
+.correctifBarreDefilementBody {
+	margin-top: -2px;
+}
+
+.aucunTri {
+    background-color: #f0d89a;
+}

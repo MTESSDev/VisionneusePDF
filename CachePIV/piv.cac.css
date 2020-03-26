@@ -1,0 +1,85 @@
+/*
+    PIV
+*/
+@media (min-width: 768px) {
+    .piv {
+        padding-left: 125px;
+        padding-right:0;
+        margin-bottom: 15px;
+    }
+
+	.piv ul {
+		width: 90%;
+		background-color: #003399;
+		box-sizing: border-box;
+		height: 20px;
+		/* margin-bottom: 0px; */
+		padding: 0 9px;
+		float:right;
+	}
+
+	.piv .nav li a {
+		color: #fff;
+		padding: 0 1px;
+		font-size: 0.923em;
+		font-family: Verdana,Geneva,sans-serif;
+	}
+
+	.piv li {
+		-webkit-transition: all .3s ease;
+		-moz-transition: all .3s ease;
+		-ms-transition: all .3s ease;
+		-o-transition: all .3s ease;
+		transition: all .3s ease;
+		line-height: 20px;
+		/* font-size: 83%; */
+		display: inline-block;
+		margin: 0 13px;
+	}
+
+	.piv li a:hover {
+		background-color: #003399;
+	}
+
+    .piv-logo {
+        display: inline-block;
+        float: left;
+        margin-top: 3px;
+    }
+
+    .piv li:first-child {
+        margin-left: 15px;
+    }
+
+    .piv-background {
+        /*! text-align: right; */
+        padding-left: -75px;
+		height:57px;
+		/*! width:450px; */
+		float: right;
+		
+    }
+
+    .margeExtranet {
+        margin-top: 55px;
+    }
+}
+
+@media (max-width: 768px) {
+    .icon-bar {
+        background-color: black;
+    }
+
+    .navbar-toggle {
+        border-color: black;
+    }
+
+    .piv-logo img {
+        margin-left: 25px;
+        margin-bottom: 10px;
+    }
+
+    .piv-background {
+        display: none;
+    }
+}
